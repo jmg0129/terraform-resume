@@ -224,6 +224,9 @@
       <p style="margin-top:8px">Based near Atlanta, GA</p>
       <p><a href="mailto:jgammons@gmail.com">jgammons@gmail.com</a></p>
       <p><a href="https://www.linkedin.com/in/jgammons/">linkedin.com/in/jgammons</a></p>
+      <p><a href="https://www.jgamm.com">Resume</a></p>
+      <p><a href="https://www.jgamm.com/bio/">Bio</a></p>
+      <p><a href="https://github.com/jmg0129/">github</a></p>
     </section>
 
     <section>
@@ -384,7 +387,7 @@
     Deployed on AWS using S3, DynamoDB, API Gateway Proxy, Lambda Functions (Node.js), Cloudfront and Terraform to deliver this online resume with a simple counter functionality.<br />Visitor #:<span id="count">...</span>
 </div>
 <script>
-  fetch("/api/counter")
+  fetch("https://emyfp33l4f.execute-api.us-east-2.amazonaws.com")
     .then((res) => res.json())
     .then((data) => {
       document.getElementById("count").textContent = data.hits.toLocaleString();
