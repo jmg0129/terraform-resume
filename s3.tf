@@ -52,11 +52,38 @@ resource "aws_s3_bucket_policy" "resume" {
   })
 }
 
-# Upload the resume HTML
-resource "aws_s3_object" "resume_html" {
+# Upload the redirect index page
+resource "aws_s3_object" "index_html" {
   bucket       = aws_s3_bucket.resume.id
   key          = "index.html"
-  source       = "${path.module}/site/index.html"
+  content      = templatefile("${path.module}/site/index.html", { DEFAULT_PAGE = var.default_page })
   content_type = "text/html"
-  etag         = filemd5("${path.module}/site/index.html")
+  etag         = md5(templatefile("${path.module}/site/index.html", { DEFAULT_PAGE = var.default_page }))
+}
+
+# Upload the resume page
+resource "aws_s3_object" "resume_html" {
+  bucket       = aws_s3_bucket.resume.id
+  key          = "resume.html"
+  source       = "${path.module}/site/resume.html"
+  content_type = "text/html"
+  etag         = filemd5("${path.module}/site/resume.html")
+}
+
+# Upload the bio page
+resource "aws_s3_object" "bio_html" {
+  bucket       = aws_s3_bucket.resume.id
+  key          = "bio.html"
+  source       = "${path.module}/site/bio.html"
+  content_type = "text/html"
+  etag         = filemd5("${path.module}/site/bio.html")
+}
+
+# Upload the headshot image
+resource "aws_s3_object" "headshot" {
+  bucket       = aws_s3_bucket.resume.id
+  key          = "gammons_headshot_3.png"
+  source       = "${path.module}/site/gammons_headshot_3.png"
+  content_type = "image/png"
+  etag         = filemd5("${path.module}/site/gammons_headshot_3.png")
 }
