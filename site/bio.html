@@ -234,6 +234,34 @@
       Deployed on AWS using S3, DynamoDB, API Gateway, Lambda, CloudFront and Terraform.<br>
       Visitor #<span id="count">...</span>
   </div>
+    <script>
+    // Counter
+    fetch("/api/counter")
+      .then((res) => res.json())
+      .then((data) => {
+        document.getElementById("count").textContent = data.hits.toLocaleString();
+      })
+      .catch(() => {
+        document.getElementById("count").textContent = "—";
+      });
+
+    // Mode toggle: ?print switches to print-friendly layout
+    const params = new URLSearchParams(window.location.search);
+    const toggle = document.getElementById('modeToggle');
+
+    if (params.has('print')) {
+      document.body.classList.add('print-mode');
+      toggle.textContent = 'Switch to Web View';
+    }
+
+    toggle.addEventListener('click', () => {
+      if (document.body.classList.contains('print-mode')) {
+        window.location.href = window.location.pathname;
+      } else {
+        window.location.href = window.location.pathname + '?print';
+      }
+    });
+  </script>
 </div>
 </body>
 </html>
