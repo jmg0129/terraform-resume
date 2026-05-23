@@ -580,42 +580,40 @@
     </div>
   </div>
 
-</div>
+  <!-- Visit Counter -->
+  <div id="visit-counter" style="text-align:center; padding:14px 20px; font-family:'DM Sans',sans-serif; color:#8a8e96; font-size:11px; background:#1a1a2e; grid-column: 1 / -1;">
+      Deployed on AWS using S3, DynamoDB, API Gateway, Lambda, CloudFront and Terraform.<br>
+      Visitor #<span id="count">...</span>
+  </div>
+  <script>
+    // Counter
+    fetch("/api/counter")
+      .then((res) => res.json())
+      .then((data) => {
+        document.getElementById("count").textContent = data.hits.toLocaleString();
+      })
+      .catch(() => {
+        document.getElementById("count").textContent = "—";
+      });
 
-<!-- Visit Counter -->
-<div id="visit-counter" style="text-align:center; padding:14px 20px; font-family:'DM Sans',sans-serif; color:#8a8e96; font-size:11px; background:#1a1a2e; max-width:850px; margin:0 auto;">
-    Deployed on AWS using S3, DynamoDB, API Gateway, Lambda, CloudFront and Terraform.<br>
-    Visitor #<span id="count">...</span>
-</div>
+    // Mode toggle: ?print switches to print-friendly layout
+    const params = new URLSearchParams(window.location.search);
+    const toggle = document.getElementById('modeToggle');
 
-<script>
-  // Counter
-  fetch("/api/counter")
-    .then((res) => res.json())
-    .then((data) => {
-      document.getElementById("count").textContent = data.hits.toLocaleString();
-    })
-    .catch(() => {
-      document.getElementById("count").textContent = "—";
-    });
-
-  // Mode toggle: ?print switches to print-friendly layout
-  const params = new URLSearchParams(window.location.search);
-  const toggle = document.getElementById('modeToggle');
-
-  if (params.has('print')) {
-    document.body.classList.add('print-mode');
-    toggle.textContent = 'Switch to Web View';
-  }
-
-  toggle.addEventListener('click', () => {
-    if (document.body.classList.contains('print-mode')) {
-      window.location.href = window.location.pathname;
-    } else {
-      window.location.href = window.location.pathname + '?print';
+    if (params.has('print')) {
+      document.body.classList.add('print-mode');
+      toggle.textContent = 'Switch to Web View';
     }
-  });
-</script>
+
+    toggle.addEventListener('click', () => {
+      if (document.body.classList.contains('print-mode')) {
+        window.location.href = window.location.pathname;
+      } else {
+        window.location.href = window.location.pathname + '?print';
+      }
+    });
+  </script>
+</div>
 
 </body>
 </html>
