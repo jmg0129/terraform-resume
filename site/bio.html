@@ -112,7 +112,6 @@
       font-weight: 500;
       margin-bottom: 24px;
     }
-
     .main h2 {
       font-family: 'DM Serif Display', serif;
       font-size: 14px;
@@ -132,7 +131,24 @@
       font-size: 14.5px;
     }
     .bio-text p {
-      margin-bottom: 16px;
+      margin-bottom: 10px;
+      margin-top: 0px;
+    }
+    .bio-text-leader {
+      font-size: 14.5px;
+      font-weight: 500;
+      margin-bottom: 5px;
+      margin-top: 30px;
+    }
+    .bio-text-leader-sig {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      margin-bottom: 30px;
+      margin-top: 5px;
     }
 
     .back-link {
@@ -180,9 +196,9 @@
     </section>
     <section>
       <h3>Links</h3>
-      <p><a href="https://www.jgamm.com/resume.html">jgamm.com/resume.html</a></p>
-      <p><a href="https://www.linkedin.com/in/jgammons/">linkedin.com/in/jgammons</a></p>
-      <p><a href="https://github.com/jmg0129/">github.com/jmg0129</a></p>
+      <p><a href="https://www.jgamm.com/resume.html">resume.html</a> | <a href="https://www.jgamm.com/John_Gammons_Resume.pdf">pdf</a></p>
+      <p><a href="https://www.linkedin.com/in/jgammons/" target="_blank">linkedin.com/in/jgammons</a></p>
+      <p><a href="https://github.com/jmg0129/" target="_blank">github.com/jmg0129</a></p>
     </section>
 
     <section>
@@ -227,19 +243,20 @@
     <div class="bio-text">
       <p>John Gammons is a results-driven, highly technical executive leader with over 15 years of experience leading, scaling and optimizing platforms, services and networks across the entire delivery lifecycle including architecture, engineering, development, and operations.  As Senior Director of Wi‑Fi Engineering and Wireless Operations at Cox Communications, he leads the design, deployment, and operation of connectivity platforms supporting millions of endpoints and driving significant enterprise revenue growth.</p>
       <p>John's expertise encompasses provider solution architecture, scaling carrier networks as well as the processes and organizations that support them, cost optimization, and data-driven experience and reliability improvements. He excels at translating complex technical information for executive audiences, influencing strategy within a matrix organization, and making timely decisions to deliver results.</p>
-      <p>John holds a Bachelor of Science in Computer Science from Auburn University and is currently pursuing a Master of Science in Computer Science at Georgia Tech, with a focus on networks, machine learning, analytics, and security.</p>
+      <p>John holds a Bachelor of Science in Computer Science from Auburn University and is currently pursuing a Master of Science in Computer Science at Georgia Tech, with an emphasis on networks, machine learning, analytics, and security.</p>
     </div>
 
     <a href="/resume.html" class="back-link">View Full Resume</a>
 
     <h2>Former leader perspectives</h2>
-    <div class="bio-text">
-      <p><i>“JG is  the full package - attitude, deep SME level in multiple areas, and a jack of trades in the others. He puts a plan together and leads a team to execute.”</i></p>
-      <div class="title-line">Matt Hayes, CTO | Highline</div>
+    <div class="bio-text-leader">
+      <p><i>“John combines deep technical expertise with exemplary leadership traits, providing an invaluable technical executive for any organization. He invests heavily in his own personal development as well as growing the skills and delivery focus of his staff to build high-performing technical teams.”</i></p>
+      <div class="bio-text-leader-sig"><a href="https://www.linkedin.com/in/drew-davis-a07b00202/" target="_blank">Drew Davis</a>, AVP Access Engineering | Cox Communications (Retired)</div>
+      <p><i>“JG is  the full package - attitude, deep SME level in multiple areas, and a jack of trades in the others. He puts a plan together and leads a team to execute.”</i><div class="bio-text-leader-sig"><a href="https://www.linkedin.com/in/matt-hayes-241216/" target="_blank">Matt Hayes</a>, CTO | Highline</div></p>
     </div>
   </main>
   <div id="visit-counter" style="text-align:center; padding:14px 20px; font-family:'DM Sans',sans-serif; color:#8a8e96; font-size:11px; background:#1a1a2e; grid-column: 1 / -1;">
-      Deployed on AWS using S3, DynamoDB, API Gateway, Lambda, CloudFront and Terraform.<br>
+      Deployed on AWS using S3, DynamoDB, API Gateway, Lambda, CloudFront and Terraform for CI/CD deployment.<br>
       Visitor #<span id="count">...</span>
   </div>
     <script>
